@@ -6,6 +6,7 @@ import GospelReader from './GospelReader';
 import AngelusModal from './AngelusModal';
 import TimeSimulator from './TimeSimulator';
 import { LiturgicalDay, LITURGICAL_CALENDAR_JULY_2026 } from '../data/liturgical-calendar';
+import Image from 'next/image';
 
 export default function LiturgicalCalendar() {
   const [selectedDay, setSelectedDay] = useState<LiturgicalDay>(LITURGICAL_CALENDAR_JULY_2026[2]); // Default to July 3, 2026 (St. Thomas)
@@ -165,7 +166,7 @@ export default function LiturgicalCalendar() {
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[var(--liturgy-primary)] to-[#0f1b30] flex items-center justify-center border border-[#1e2e4a]/60">
-              <span className="text-white font-serif font-black text-lg">Ω</span>
+              <Image src="/favicon.ico" alt="Logo" width={50} height={50} />
             </div>
             <div>
               <h1 className="text-lg font-black tracking-widest font-serif text-white">SAKRAMENTUM</h1>
