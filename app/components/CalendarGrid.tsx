@@ -30,10 +30,10 @@ export default function CalendarGrid({ selectedDay, onSelectDay }: CalendarGridP
     };
   });
   return (
-    <div className="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-4 backdrop-blur-md font-sans">
+    <div className="bg-[#0f1b30]/60 border border-[#1e2e4a]/60 rounded-2xl p-4 backdrop-blur-md font-sans">
       <div className="flex items-center justify-between mb-2">
         <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider">Juli 2026</h3>
-        <span className="text-[9px] font-mono text-zinc-500 bg-zinc-950/50 px-2 py-0.5 rounded-full border border-zinc-900">
+        <span className="text-[9px] font-mono text-zinc-500 bg-[#08101d]/60 px-2 py-0.5 rounded-full border border-[#1e2e4a]/60">
           Kalender Liturgi
         </span>
       </div>
@@ -67,8 +67,8 @@ export default function CalendarGrid({ selectedDay, onSelectDay }: CalendarGridP
               onClick={() => onSelectDay(dayItem)}
               className={`relative aspect-square flex flex-col items-center justify-center rounded-lg border text-[11px] transition-all select-none group cursor-pointer ${
                 isSelected
-                  ? 'bg-zinc-800 border-zinc-600 text-white font-bold scale-105 shadow-md z-10'
-                  : 'bg-zinc-950/20 hover:bg-zinc-850 hover:border-zinc-700 text-zinc-400 border-zinc-900/30'
+                  ? 'bg-[#1a2b47] border-[#2c3d59] text-white font-bold scale-105 shadow-md z-10'
+                  : 'bg-[#08101d]/50 hover:bg-[#15233a] hover:border-[#213554] text-zinc-400 border-[#0d1627]/40'
               }`}
             >
               {/* Liturgical color border glow for selected day */}
@@ -93,7 +93,7 @@ export default function CalendarGrid({ selectedDay, onSelectDay }: CalendarGridP
               }`} />
               
               {/* Tooltip on hover */}
-              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-32 hidden group-hover:block bg-zinc-950 text-[10px] p-2 rounded shadow-xl border border-zinc-800 z-30 pointer-events-none text-center leading-tight">
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-32 hidden group-hover:block bg-[#08101d] text-[10px] p-2 rounded shadow-xl border border-[#1e2e4a] z-30 pointer-events-none text-center leading-tight">
                 <span className="font-bold block mb-0.5 text-zinc-350">{dayItem.status}</span>
                 <span className="text-zinc-400">{dayItem.name}</span>
               </span>
@@ -103,7 +103,7 @@ export default function CalendarGrid({ selectedDay, onSelectDay }: CalendarGridP
       </div>
       
       {/* Legend */}
-      <div className="mt-3 pt-2 border-t border-zinc-800/40 text-center text-[9px] text-zinc-500">
+      <div className="mt-3 pt-2 border-t border-[#1e2e4a]/40 text-center text-[9px] text-zinc-500">
         Warna: <span className="text-emerald-500 font-medium">Hijau (Biasa)</span> &bull; <span className="text-red-400 font-medium">Merah (Pesta)</span> &bull; <span className="text-amber-400 font-medium">Putih (Wajib)</span>
       </div>
     </div>

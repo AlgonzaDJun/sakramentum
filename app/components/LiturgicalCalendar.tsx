@@ -153,7 +153,7 @@ export default function LiturgicalCalendar() {
   return (
     <div 
       style={themeStyles as React.CSSProperties}
-      className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col relative overflow-x-hidden selection:bg-[var(--liturgy-primary)] selection:text-white"
+      className="min-h-screen bg-[#0b1426] text-zinc-100 flex flex-col relative overflow-x-hidden selection:bg-[var(--liturgy-primary)] selection:text-white"
     >
       
       {/* Dynamic Background Blur Glow (Liturgical Aurora) */}
@@ -161,10 +161,10 @@ export default function LiturgicalCalendar() {
       <div className="absolute bottom-[-100px] right-1/4 w-[400px] h-[400px] rounded-full bg-[var(--liturgy-glow)] blur-[120px] pointer-events-none opacity-50 mix-blend-screen transition-all duration-1000" />
 
       {/* Top Navbar */}
-      <header className="border-b border-zinc-900 bg-zinc-950/70 backdrop-blur-md sticky top-0 z-30 px-6 py-4">
+      <header className="border-b border-[#1e2e4a]/40 bg-[#0b1426]/85 backdrop-blur-md sticky top-0 z-30 px-6 py-4">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[var(--liturgy-primary)] to-zinc-800 flex items-center justify-center border border-zinc-800">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[var(--liturgy-primary)] to-[#0f1b30] flex items-center justify-center border border-[#1e2e4a]/60">
               <span className="text-white font-serif font-black text-lg">Ω</span>
             </div>
             <div>
@@ -177,7 +177,7 @@ export default function LiturgicalCalendar() {
             {/* Fullscreen Button */}
             <button
               onClick={toggleFullscreen}
-              className="px-3.5 py-1.5 bg-zinc-900/50 hover:bg-zinc-800 border border-zinc-800 rounded-xl flex items-center gap-2 backdrop-blur text-xs font-semibold text-zinc-300 hover:text-white transition-all cursor-pointer"
+              className="px-3.5 py-1.5 bg-[#0f1b30]/50 hover:bg-[#15233a] border border-[#1e2e4a] rounded-xl flex items-center gap-2 backdrop-blur text-xs font-semibold text-zinc-300 hover:text-white transition-all cursor-pointer"
               title="Toggle Layar Penuh (Fullscreen) untuk Share Screen"
             >
               {isFullscreen ? (
@@ -198,7 +198,7 @@ export default function LiturgicalCalendar() {
             </button>
 
             {/* Clock Widget */}
-            <div className="px-3.5 py-1.5 bg-zinc-900/50 border border-zinc-800 rounded-xl flex items-center gap-2.5 backdrop-blur">
+            <div className="px-3.5 py-1.5 bg-[#0f1b30]/50 border border-[#1e2e4a] rounded-xl flex items-center gap-2.5 backdrop-blur">
               <span className="relative flex h-2 w-2">
                 <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isMocked ? 'bg-amber-400' : 'bg-emerald-400'}`}></span>
                 <span className={`relative inline-flex rounded-full h-2 w-2 ${isMocked ? 'bg-amber-500' : 'bg-emerald-500'}`}></span>
@@ -210,11 +210,12 @@ export default function LiturgicalCalendar() {
           </div>
         </div>
       </header>
+      
       {/* Main Layout */}
       <main className="flex-1 max-w-6xl w-full mx-auto p-4 sm:p-6 space-y-6 relative z-10">
         
         {/* Row 1: Liturgical Details Card (Full Width & Minimal Height) */}
-        <section id="bacaan-card" className="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-4 backdrop-blur-md relative overflow-hidden flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <section id="bacaan-card" className="bg-[#0f1b30]/60 border border-[#1e2e4a]/60 rounded-2xl p-4 backdrop-blur-md relative overflow-hidden flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           {/* Corner liturgy color accent line */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-[var(--liturgy-primary)]" />
           
@@ -236,7 +237,7 @@ export default function LiturgicalCalendar() {
           {/* Liturgical Color Badge & Compact Readings Grid */}
           <div className="flex flex-wrap md:flex-nowrap items-center gap-3">
             {/* Liturgical Color Badge */}
-            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-zinc-950 rounded-full border border-zinc-850">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-[#08101d] rounded-full border border-[#1e2e4a]">
               <span className={`w-2 h-2 rounded-full ${
                 selectedDay.color === 'Merah' ? 'bg-red-500' :
                 selectedDay.color === 'Putih' ? 'bg-amber-400' :
@@ -252,7 +253,7 @@ export default function LiturgicalCalendar() {
               {readingsList.map((reading) => (
                 <div 
                   key={reading.label}
-                  className="px-2.5 py-1 bg-zinc-950/60 rounded-lg border border-zinc-850/80 text-[10px] font-mono flex gap-1 hover:border-zinc-850 transition-colors"
+                  className="px-2.5 py-1 bg-[#08101d]/60 rounded-lg border border-[#1e2e4a]/60 text-[10px] font-mono flex gap-1 hover:border-[#1e2e4a] transition-colors"
                   title={reading.label}
                 >
                   <span className="text-zinc-500 font-bold">{reading.label === 'Mazmur Tanggapan' ? 'Mzm' : reading.label === 'Bacaan Injil' ? 'Injil' : reading.label}:</span>
@@ -261,7 +262,7 @@ export default function LiturgicalCalendar() {
               ))}
               {selectedDay.bco && (
                 <div 
-                  className="px-2.5 py-1 bg-zinc-950/60 rounded-lg border border-zinc-850/80 text-[10px] font-mono flex gap-1 hover:border-zinc-850 transition-colors"
+                  className="px-2.5 py-1 bg-[#08101d]/60 rounded-lg border border-[#1e2e4a]/60 text-[10px] font-mono flex gap-1 hover:border-[#1e2e4a] transition-colors"
                   title="Bacaan Harian (BcO)"
                 >
                   <span className="text-zinc-500 font-bold">BcO:</span>
@@ -284,10 +285,10 @@ export default function LiturgicalCalendar() {
           </div>
           
           {/* Collapsible Angelus Widget */}
-          <section className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl overflow-hidden backdrop-blur-md self-start">
+          <section className="bg-[#0f1b30]/60 border border-[#1e2e4a]/60 rounded-2xl overflow-hidden backdrop-blur-md self-start">
             <button 
               onClick={() => setIsAngelusWidgetOpen(!isAngelusWidgetOpen)}
-              className="w-full p-4 flex items-center justify-between text-left cursor-pointer hover:bg-zinc-900/30 transition-colors"
+              className="w-full p-4 flex items-center justify-between text-left cursor-pointer hover:bg-[#15233a]/30 transition-colors"
             >
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center border border-amber-500/25">
@@ -312,7 +313,7 @@ export default function LiturgicalCalendar() {
             </button>
 
             {isAngelusWidgetOpen && (
-              <div className="px-5 pb-5 pt-2 border-t border-zinc-850 animate-in fade-in duration-300 text-xs text-zinc-300 space-y-4 max-h-[350px] overflow-y-auto custom-scrollbar leading-relaxed">
+              <div className="px-5 pb-5 pt-2 border-t border-[#1e2e4a]/60 animate-in fade-in duration-300 text-xs text-zinc-300 space-y-4 max-h-[350px] overflow-y-auto custom-scrollbar leading-relaxed">
                 <div>
                   <p className="italic text-zinc-400 mb-0.5"><span className="font-bold text-amber-500 mr-1.5">V.</span>Maria diberi kabar oleh malaikat Tuhan,</p>
                   <p className="font-medium"><span className="font-bold text-zinc-500 mr-1.5">R.</span>Bahwa ia akan mengandung dari Roh Kudus.</p>
@@ -336,9 +337,9 @@ export default function LiturgicalCalendar() {
                   <p className="font-medium"><span className="font-bold text-zinc-500 mr-1.5">R.</span>Supaya kami dapat menikmati janji Kristus.</p>
                 </div>
 
-                <div className="pt-2 border-t border-zinc-850">
+                <div className="pt-2 border-t border-[#1e2e4a]/60">
                   <p className="font-bold text-amber-500/80 mb-0.5">Marilah berdoa <span className="font-normal italic text-zinc-500">(Hening)</span></p>
-                  <p className="pl-3 border-l-2 border-zinc-800 text-zinc-400 text-[11px] leading-relaxed">
+                  <p className="pl-3 border-l-2 border-[#1e2e4a]/60 text-zinc-400 text-[11px] leading-relaxed">
                     Ya Allah, karena kabar malaikat, kami mengetahui bahwa Yesus Kristus Putra-Mu menjadi manusia. Curahkanlah rahmat-Mu ke dalam hati kami, supaya karena sengsara dan salib-Nya, kami dibawa kepada kebangkitan yang mulia. Sebab Dialah Tuhan, pengantara kami.
                   </p>
                   <p className="font-bold mt-1.5"><span className="font-bold text-zinc-500 mr-1.5">R.</span>Amin.</p>
@@ -350,7 +351,7 @@ export default function LiturgicalCalendar() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-900 bg-zinc-950 py-8 px-6 text-center text-xs text-zinc-500 relative z-10">
+      <footer className="border-t border-[#1e2e4a]/40 bg-[#08101d] py-8 px-6 text-center text-xs text-zinc-500 relative z-10">
         <p>© 2026 Sakramentum Kalender Liturgi. Semua hak cipta dilindungi.</p>
         <p className="mt-1.5 text-zinc-600 font-mono">Dibuat menggunakan Next.js & Tailwind CSS. Referensi scripture dari imankatolik.or.id</p>
       </footer>
