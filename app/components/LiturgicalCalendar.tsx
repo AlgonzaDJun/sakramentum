@@ -5,11 +5,13 @@ import CalendarGrid from './CalendarGrid';
 import GospelReader from './GospelReader';
 import AngelusModal from './AngelusModal';
 import TimeSimulator from './TimeSimulator';
-import { LiturgicalDay, LITURGICAL_CALENDAR_JULY_2026 } from '../data/liturgical-calendar';
+import { LiturgicalDay, LITURGICAL_CALENDAR } from '../data/liturgical-calendar';
 import Image from 'next/image';
 
 export default function LiturgicalCalendar() {
-  const [selectedDay, setSelectedDay] = useState<LiturgicalDay>(LITURGICAL_CALENDAR_JULY_2026[2]); // Default to July 3, 2026 (St. Thomas)
+  const [selectedDay, setSelectedDay] = useState<LiturgicalDay>(
+    LITURGICAL_CALENDAR.find(d => d.date === '2026-07-03') || LITURGICAL_CALENDAR[0]
+  ); // Default to July 3, 2026 (St. Thomas)
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
   const [isMocked, setIsMocked] = useState(false);
   const [mockTime, setMockTime] = useState<Date | null>(null);
@@ -34,10 +36,10 @@ export default function LiturgicalCalendar() {
     }
   };
 
-  // Default to today's date in July 2026 on load if possible
+  // Default to today's date in July-November 2026 on load if possible
   useEffect(() => {
     const todayStr = new Date().toISOString().split('T')[0];
-    const todayData = LITURGICAL_CALENDAR_JULY_2026.find(d => d.date === todayStr);
+    const todayData = LITURGICAL_CALENDAR.find(d => d.date === todayStr);
     if (todayData) {
       // Defer state update to avoid warnings in react-hooks/set-state-in-effect
       setTimeout(() => setSelectedDay(todayData), 0);
@@ -101,6 +103,18 @@ export default function LiturgicalCalendar() {
           '--liturgy-text': '#92400e',           // amber-800
           '--liturgy-text-light': '#fcd34d',     // amber-300
           '--liturgy-glow': 'rgba(217, 119, 6, 0.15)',
+        };
+      case 'Ungu':
+      case 'Ungu/Hitam':
+        return {
+          '--liturgy-primary': '#8b5cf6',       // violet-600
+          '--liturgy-primary-hover': '#7c3aed', // violet-700
+          '--liturgy-bg-light': '#f5f3ff',      // violet-50
+          '--liturgy-bg-dark': '#2e1065',       // violet-950
+          '--liturgy-border': '#ddd6fe',         // violet-200
+          '--liturgy-text': '#5b21b6',           // violet-800
+          '--liturgy-text-light': '#c4b5fd',     // violet-300
+          '--liturgy-glow': 'rgba(139, 92, 246, 0.15)',
         };
       case 'Hijau':
       default:
@@ -242,6 +256,7 @@ export default function LiturgicalCalendar() {
               <span className={`w-2 h-2 rounded-full ${
                 selectedDay.color === 'Merah' ? 'bg-red-500' :
                 selectedDay.color === 'Putih' ? 'bg-amber-400' :
+                selectedDay.color === 'Ungu' || selectedDay.color === 'Ungu/Hitam' ? 'bg-violet-500' :
                 'bg-emerald-500'
               }`} />
               <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-wide">

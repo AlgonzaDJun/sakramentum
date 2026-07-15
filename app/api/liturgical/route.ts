@@ -1,5 +1,5 @@
 import { type NextRequest } from 'next/server';
-import { LITURGICAL_CALENDAR_JULY_2026 } from '../../data/liturgical-calendar';
+import { LITURGICAL_CALENDAR } from '../../data/liturgical-calendar';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,13 +18,13 @@ export async function GET(request: NextRequest) {
       dateStr = `${year}-${month}-${day}`;
     }
 
-    const dayData = LITURGICAL_CALENDAR_JULY_2026.find(item => item.date === dateStr);
+    const dayData = LITURGICAL_CALENDAR.find(item => item.date === dateStr);
 
     if (!dayData) {
       return Response.json(
         { 
           error: 'Data not found', 
-          message: `Liturgical data is only available for July 2026. Requested date: ${dateStr}` 
+          message: `Liturgical data is only available for July - November 2026. Requested date: ${dateStr}` 
         },
         { status: 404 }
       );
