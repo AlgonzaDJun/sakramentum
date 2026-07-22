@@ -36,8 +36,15 @@ export function formatGospelQuery(query: string): string {
       const cleanPart = part.trim();
       if (!cleanPart) continue;
       
-      // If it starts with a letter (e.g. if the part somehow has a book, but usually it doesn't)
-      if (/^[a-zA-Z]/.test(cleanPart)) {
+      // Check for chapter-crossing range like "21-19:1" or "34-11:1"
+      const crossMatch = cleanPart.match(/^(\d+)-(\d+):(\d+)$/);
+      if (crossMatch) {
+        const startVerse = crossMatch[1];
+        const endChapter = crossMatch[2];
+        const endVerse = crossMatch[3];
+        allFormattedParts.push(`${book}${chapter}:${startVerse}-99`);
+        allFormattedParts.push(`${book}${endChapter}:1-${endVerse}`);
+      } else if (/^[a-zA-Z]/.test(cleanPart)) {
         allFormattedParts.push(cleanPart.replace(/\s+/g, ''));
       } else {
         allFormattedParts.push(`${book}${chapter}:${cleanPart}`);
