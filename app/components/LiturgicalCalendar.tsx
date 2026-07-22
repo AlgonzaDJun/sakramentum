@@ -236,15 +236,15 @@ export default function LiturgicalCalendar() {
           
           <div className="flex-1">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[10px] font-bold text-[var(--liturgy-primary)] tracking-wider uppercase">
+              <span className="text-xs font-bold text-[var(--liturgy-primary)] tracking-wider uppercase">
                 {selectedDay.status}
               </span>
-              <span className="text-zinc-700 font-bold text-[10px]">•</span>
-              <span className="text-[10px] font-mono text-zinc-500 font-bold uppercase tracking-wider">
+              <span className="text-zinc-700 font-bold text-xs sm:text-sm">•</span>
+              <span className="text-xs sm:text-sm font-mono text-zinc-500 font-bold uppercase tracking-wider">
                 {formatDateLabel(selectedDay.date)}
               </span>
             </div>
-            <h2 className="text-lg sm:text-xl font-bold font-serif text-white tracking-tight mt-0.5">
+            <h2 className="text-xl sm:text-3xl font-extrabold font-serif text-white tracking-tight mt-1.5">
               {selectedDay.name}
             </h2>
           </div>
@@ -252,24 +252,24 @@ export default function LiturgicalCalendar() {
           {/* Liturgical Color Badge & Compact Readings Grid */}
           <div className="flex flex-wrap md:flex-nowrap items-center gap-3">
             {/* Liturgical Color Badge */}
-            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-[#08101d] rounded-full border border-[#1e2e4a]">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#08101d] rounded-full border border-[#1e2e4a]">
               <span className={`w-2 h-2 rounded-full ${
                 selectedDay.color === 'Merah' ? 'bg-red-500' :
                 selectedDay.color === 'Putih' ? 'bg-amber-400' :
                 selectedDay.color === 'Ungu' || selectedDay.color === 'Ungu/Hitam' ? 'bg-violet-500' :
                 'bg-emerald-500'
               }`} />
-              <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-wide">
+              <span className="text-xs font-bold text-zinc-400 uppercase tracking-wide">
                 {selectedDay.color}
               </span>
             </div>
 
             {/* Readings references (Compact Badges) */}
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               {readingsList.map((reading) => (
                 <div 
                   key={reading.label}
-                  className="px-2.5 py-1 bg-[#08101d]/60 rounded-lg border border-[#1e2e4a]/60 text-[10px] font-mono flex gap-1 hover:border-[#1e2e4a] transition-colors"
+                  className="px-3.5 py-1.5 bg-[#08101d]/60 rounded-lg border border-[#1e2e4a]/60 text-xs sm:text-sm font-mono flex gap-1 hover:border-[#1e2e4a] transition-colors"
                   title={reading.label}
                 >
                   <span className="text-zinc-500 font-bold">{reading.label === 'Mazmur Tanggapan' ? 'Mzm' : reading.label === 'Bacaan Injil' ? 'Injil' : reading.label}:</span>
@@ -278,7 +278,7 @@ export default function LiturgicalCalendar() {
               ))}
               {selectedDay.bco && (
                 <div 
-                  className="px-2.5 py-1 bg-[#08101d]/60 rounded-lg border border-[#1e2e4a]/60 text-[10px] font-mono flex gap-1 hover:border-[#1e2e4a] transition-colors"
+                  className="px-3.5 py-1.5 bg-[#08101d]/60 rounded-lg border border-[#1e2e4a]/60 text-xs sm:text-sm font-mono flex gap-1 hover:border-[#1e2e4a] transition-colors"
                   title="Bacaan Harian (BcO)"
                 >
                   <span className="text-zinc-500 font-bold">BcO:</span>
@@ -307,14 +307,14 @@ export default function LiturgicalCalendar() {
               className="w-full p-4 flex items-center justify-between text-left cursor-pointer hover:bg-[#15233a]/30 transition-colors"
             >
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center border border-amber-500/25">
-                  <svg className="w-4.5 h-4.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="w-9 h-9 rounded-lg bg-amber-500/10 flex items-center justify-center border border-amber-500/25">
+                  <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-zinc-200">Doa Malaikat Tuhan</h3>
-                  <p className="text-[10px] text-zinc-500 uppercase mt-0.5 tracking-wider font-mono">Setiap Jam 06.00 • 12.00 • 18.00</p>
+                  <h3 className="text-base font-bold text-zinc-200">Doa Malaikat Tuhan</h3>
+                  <p className="text-xs text-zinc-500 uppercase mt-0.5 tracking-wider font-mono">Setiap Jam 06.00 • 12.00 • 18.00</p>
                 </div>
               </div>
               <svg 
@@ -329,36 +329,36 @@ export default function LiturgicalCalendar() {
             </button>
 
             {isAngelusWidgetOpen && (
-              <div className="px-5 pb-5 pt-2 border-t border-[#1e2e4a]/60 animate-in fade-in duration-300 text-xs text-zinc-300 space-y-4 max-h-[350px] overflow-y-auto custom-scrollbar leading-relaxed">
+              <div className="px-5 pb-6 pt-2 border-t border-[#1e2e4a]/60 animate-in fade-in duration-300 text-sm sm:text-base text-zinc-300 space-y-5 max-h-[400px] overflow-y-auto custom-scrollbar leading-relaxed">
                 <div>
-                  <p className="italic text-zinc-400 mb-0.5"><span className="font-bold text-amber-500 mr-1.5">V.</span>Maria diberi kabar oleh malaikat Tuhan,</p>
+                  <p className="italic text-zinc-450 mb-0.5"><span className="font-bold text-amber-550 mr-1.5">V.</span>Maria diberi kabar oleh malaikat Tuhan,</p>
                   <p className="font-medium"><span className="font-bold text-zinc-500 mr-1.5">R.</span>Bahwa ia akan mengandung dari Roh Kudus.</p>
-                  <p className="text-[10px] text-zinc-500 italic mt-0.5 pl-4">(Salam Maria …)</p>
+                  <p className="text-xs sm:text-sm text-zinc-500 italic mt-0.5 pl-6">(Salam Maria …)</p>
                 </div>
 
                 <div>
-                  <p className="italic text-zinc-400 mb-0.5"><span className="font-bold text-amber-500 mr-1.5">V.</span>&ldquo;Aku ini hamba Tuhan,&rdquo;</p>
+                  <p className="italic text-zinc-450 mb-0.5"><span className="font-bold text-amber-550 mr-1.5">V.</span>&ldquo;Aku ini hamba Tuhan,&rdquo;</p>
                   <p className="font-medium"><span className="font-bold text-zinc-500 mr-1.5">R.</span>&ldquo;Terjadilah padaku menurut perkataan-Mu.&rdquo;</p>
-                  <p className="text-[10px] text-zinc-500 italic mt-0.5 pl-4">(Salam Maria …)</p>
+                  <p className="text-xs sm:text-sm text-zinc-500 italic mt-0.5 pl-6">(Salam Maria …)</p>
                 </div>
 
                 <div>
-                  <p className="italic text-zinc-400 mb-0.5"><span className="font-bold text-amber-500 mr-1.5">V.</span>Sabda sudah menjadi daging,</p>
+                  <p className="italic text-zinc-450 mb-0.5"><span className="font-bold text-amber-550 mr-1.5">V.</span>Sabda sudah menjadi daging,</p>
                   <p className="font-medium"><span className="font-bold text-zinc-500 mr-1.5">R.</span>Dan tinggal diantara kita.</p>
-                  <p className="text-[10px] text-zinc-500 italic mt-0.5 pl-4">(Salam Maria …)</p>
+                  <p className="text-xs sm:text-sm text-zinc-500 italic mt-0.5 pl-6">(Salam Maria …)</p>
                 </div>
 
                 <div>
-                  <p className="italic text-zinc-400 mb-0.5"><span className="font-bold text-amber-500 mr-1.5">V.</span>Doakanlah kami, ya Santa Bunda Allah,</p>
+                  <p className="italic text-zinc-450 mb-0.5"><span className="font-bold text-amber-550 mr-1.5">V.</span>Doakanlah kami, ya Santa Bunda Allah,</p>
                   <p className="font-medium"><span className="font-bold text-zinc-500 mr-1.5">R.</span>Supaya kami dapat menikmati janji Kristus.</p>
                 </div>
 
-                <div className="pt-2 border-t border-[#1e2e4a]/60">
-                  <p className="font-bold text-amber-500/80 mb-0.5">Marilah berdoa <span className="font-normal italic text-zinc-500">(Hening)</span></p>
-                  <p className="pl-3 border-l-2 border-[#1e2e4a]/60 text-zinc-400 text-[11px] leading-relaxed">
+                <div className="pt-3 border-t border-[#1e2e4a]/60">
+                  <p className="font-extrabold text-base sm:text-lg text-amber-500/85 mb-1.5">Marilah berdoa <span className="font-normal italic text-zinc-500 text-xs sm:text-sm">(Hening)</span></p>
+                  <p className="pl-3 border-l-2 border-[#1e2e4a]/60 text-zinc-400 text-xs sm:text-sm leading-relaxed">
                     Ya Allah, karena kabar malaikat, kami mengetahui bahwa Yesus Kristus Putra-Mu menjadi manusia. Curahkanlah rahmat-Mu ke dalam hati kami, supaya karena sengsara dan salib-Nya, kami dibawa kepada kebangkitan yang mulia. Sebab Dialah Tuhan, pengantara kami.
                   </p>
-                  <p className="font-bold mt-1.5"><span className="font-bold text-zinc-500 mr-1.5">R.</span>Amin.</p>
+                  <p className="font-bold mt-2 text-sm sm:text-base"><span className="font-bold text-zinc-500 mr-1.5">R.</span>Amin.</p>
                 </div>
               </div>
             )}

@@ -34,7 +34,7 @@ export default function AngelusModal({ currentTime }: AngelusModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-zinc-950/80 backdrop-blur-md animate-in fade-in duration-300">
-      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto custom-scrollbar bg-[#faf8f5] text-stone-900 rounded-3xl border border-amber-800/15 p-6 sm:p-8 shadow-2xl shadow-amber-900/10 animate-in zoom-in-95 slide-in-from-bottom-8 duration-300 overflow-hidden">
+      <div className="relative w-full max-w-2xl max-h-[95vh] overflow-y-auto custom-scrollbar bg-[#faf8f5] text-stone-900 rounded-3xl border border-amber-800/15 p-6 sm:p-10 shadow-2xl shadow-amber-900/10 animate-in zoom-in-95 slide-in-from-bottom-8 duration-300 overflow-hidden">
         
         {/* Background Texture Overlay */}
         <div 
@@ -51,9 +51,9 @@ export default function AngelusModal({ currentTime }: AngelusModalProps) {
         
         <div className="flex flex-col items-center text-center mb-6 relative z-10">
           {/* Swinging Bell Micro-Animation */}
-          <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mb-3 border border-amber-500/20">
+          <div className="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mb-4 border border-amber-500/20">
             <svg 
-              className="w-8 h-8 text-amber-600 origin-top animate-[wiggle_1.5s_ease-in-out_infinite]"
+              className="w-10 h-10 text-amber-600 origin-top animate-[wiggle_1.5s_ease-in-out_infinite]"
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24" 
@@ -63,66 +63,66 @@ export default function AngelusModal({ currentTime }: AngelusModalProps) {
             </svg>
           </div>
           
-          <h2 className="text-xl font-bold uppercase tracking-widest text-stone-900">Doa Malaikat Tuhan</h2>
-          <p className="text-xs text-amber-850/80 mt-1 font-mono tracking-wider">ANGELUS • {hours === 6 ? 'PAGI (06.00)' : hours === 12 ? 'SIANG (12.00)' : 'SORE (18.00)'}</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-widest text-stone-900">Doa Malaikat Tuhan</h2>
+          <p className="text-xs sm:text-sm text-amber-850/80 mt-2 font-mono tracking-wider">ANGELUS • {hours === 6 ? 'PAGI (06.00)' : hours === 12 ? 'SIANG (12.00)' : 'SORE (18.00)'}</p>
         </div>
 
         {/* Prayer Text */}
-        <div className="space-y-6 text-sm text-stone-800 leading-relaxed max-w-lg mx-auto border-y border-amber-900/10 py-6 my-4 relative z-10">
+        <div className="space-y-8 text-base sm:text-lg text-stone-850 leading-relaxed max-w-xl mx-auto border-y border-amber-900/10 py-8 my-6 relative z-10">
           <div>
-            <p className="italic text-stone-600 mb-1">
-              <span className="inline-block font-mono text-[10px] font-bold text-amber-850 bg-amber-100 border border-amber-900/10 px-1.5 py-0.5 rounded mr-2 align-middle select-none">V.</span>
+            <p className="italic text-stone-600 mb-1.5">
+              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-amber-850 bg-amber-100 border border-amber-900/10 px-2 py-0.5 rounded mr-2 align-middle select-none">V.</span>
               Maria diberi kabar oleh malaikat Tuhan,
             </p>
-            <p className="font-medium">
-              <span className="inline-block font-mono text-[10px] font-bold text-stone-500 bg-stone-100 border border-stone-200 px-1.5 py-0.5 rounded mr-2 align-middle select-none">R.</span>
+            <p className="font-semibold text-stone-900">
+              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-stone-500 bg-stone-100 border border-stone-200 px-2 py-0.5 rounded mr-2 align-middle select-none">R.</span>
               Bahwa ia akan mengandung dari Roh Kudus.
             </p>
-            <p className="text-xs text-stone-500 mt-1 italic pl-10">(Salam Maria …)</p>
+            <p className="text-sm sm:text-base text-stone-500 mt-1.5 italic pl-8 sm:pl-12">(Salam Maria …)</p>
           </div>
 
           <div>
-            <p className="italic text-stone-600 mb-1">
-              <span className="inline-block font-mono text-[10px] font-bold text-amber-850 bg-amber-100 border border-amber-900/10 px-1.5 py-0.5 rounded mr-2 align-middle select-none">V.</span>
+            <p className="italic text-stone-600 mb-1.5">
+              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-amber-850 bg-amber-100 border border-amber-900/10 px-2 py-0.5 rounded mr-2 align-middle select-none">V.</span>
               &ldquo;Aku ini hamba Tuhan,&rdquo;
             </p>
-            <p className="font-medium">
-              <span className="inline-block font-mono text-[10px] font-bold text-stone-500 bg-stone-100 border border-stone-200 px-1.5 py-0.5 rounded mr-2 align-middle select-none">R.</span>
+            <p className="font-semibold text-stone-900">
+              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-stone-500 bg-stone-100 border border-stone-200 px-2 py-0.5 rounded mr-2 align-middle select-none">R.</span>
               &ldquo;Terjadilah padaku menurut perkataan-Mu.&rdquo;
             </p>
-            <p className="text-xs text-stone-500 mt-1 italic pl-10">(Salam Maria …)</p>
+            <p className="text-sm sm:text-base text-stone-500 mt-1.5 italic pl-8 sm:pl-12">(Salam Maria …)</p>
           </div>
 
           <div>
-            <p className="italic text-stone-600 mb-1">
-              <span className="inline-block font-mono text-[10px] font-bold text-amber-850 bg-amber-100 border border-amber-900/10 px-1.5 py-0.5 rounded mr-2 align-middle select-none">V.</span>
+            <p className="italic text-stone-600 mb-1.5">
+              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-amber-850 bg-amber-100 border border-amber-900/10 px-2 py-0.5 rounded mr-2 align-middle select-none">V.</span>
               Sabda sudah menjadi daging,
             </p>
-            <p className="font-medium">
-              <span className="inline-block font-mono text-[10px] font-bold text-stone-500 bg-stone-100 border border-stone-200 px-1.5 py-0.5 rounded mr-2 align-middle select-none">R.</span>
+            <p className="font-semibold text-stone-900">
+              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-stone-500 bg-stone-100 border border-stone-200 px-2 py-0.5 rounded mr-2 align-middle select-none">R.</span>
               Dan tinggal diantara kita.
             </p>
-            <p className="text-xs text-stone-500 mt-1 italic pl-10">(Salam Maria …)</p>
+            <p className="text-sm sm:text-base text-stone-500 mt-1.5 italic pl-8 sm:pl-12">(Salam Maria …)</p>
           </div>
 
           <div>
-            <p className="italic text-stone-600 mb-1">
-              <span className="inline-block font-mono text-[10px] font-bold text-amber-850 bg-amber-100 border border-amber-900/10 px-1.5 py-0.5 rounded mr-2 align-middle select-none">V.</span>
+            <p className="italic text-stone-600 mb-1.5">
+              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-amber-850 bg-amber-100 border border-amber-900/10 px-2 py-0.5 rounded mr-2 align-middle select-none">V.</span>
               Doakanlah kami, ya Santa Bunda Allah,
             </p>
-            <p className="font-medium">
-              <span className="inline-block font-mono text-[10px] font-bold text-stone-500 bg-stone-100 border border-stone-200 px-1.5 py-0.5 rounded mr-2 align-middle select-none">R.</span>
+            <p className="font-semibold text-stone-900">
+              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-stone-500 bg-stone-100 border border-stone-200 px-2 py-0.5 rounded mr-2 align-middle select-none">R.</span>
               Supaya kami dapat menikmati janji Kristus.
             </p>
           </div>
 
-          <div className="pt-2">
-            <p className="font-bold text-amber-700 mb-1">Marilah berdoa <span className="font-normal italic text-stone-500">(Hening)</span></p>
-            <p className="pl-4 border-l-2 border-stone-300 text-stone-700">
+          <div className="pt-3 border-t border-amber-900/10">
+            <p className="font-extrabold text-lg sm:text-xl text-amber-700 mb-2">Marilah berdoa <span className="font-normal italic text-stone-500 text-sm sm:text-base">(Hening)</span></p>
+            <p className="pl-4 sm:pl-5 border-l-3 border-stone-300 text-stone-700 text-base sm:text-lg leading-relaxed">
               Ya Allah, karena kabar malaikat, kami mengetahui bahwa Yesus Kristus Putra-Mu menjadi manusia. Curahkanlah rahmat-Mu ke dalam hati kami, supaya karena sengsara dan salib-Nya, kami dibawa kepada kebangkitan yang mulia. Sebab Dialah Tuhan, pengantara kami.
             </p>
-            <p className="font-bold mt-2">
-              <span className="inline-block font-mono text-[10px] font-bold text-stone-500 bg-stone-100 border border-stone-200 px-1.5 py-0.5 rounded mr-2 align-middle select-none">R.</span>
+            <p className="font-bold text-base sm:text-lg mt-3">
+              <span className="inline-block font-mono text-xs sm:text-sm font-bold text-stone-500 bg-stone-100 border border-stone-200 px-2 py-0.5 rounded mr-2 align-middle select-none">R.</span>
               Amin.
             </p>
           </div>
@@ -131,7 +131,7 @@ export default function AngelusModal({ currentTime }: AngelusModalProps) {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-3 pt-2 relative z-10">
           <button
             onClick={handleDismiss}
-            className="w-full sm:w-auto px-5 py-2.5 bg-white hover:bg-stone-100 text-stone-700 font-bold rounded-xl active:scale-95 transition-all text-xs tracking-wider cursor-pointer border border-stone-300 shadow-sm"
+            className="w-full sm:w-auto px-6 py-3 bg-white hover:bg-stone-100 text-stone-700 font-bold rounded-xl active:scale-95 transition-all text-xs sm:text-sm tracking-wider cursor-pointer border border-stone-300 shadow-sm"
           >
             SELESAI BERDOA
           </button>
@@ -144,7 +144,7 @@ export default function AngelusModal({ currentTime }: AngelusModalProps) {
                 el.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-stone-950 font-bold rounded-xl shadow-lg hover:shadow-amber-500/10 active:scale-95 transition-all text-xs tracking-wider cursor-pointer"
+            className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-stone-950 font-bold rounded-xl shadow-lg hover:shadow-amber-500/10 active:scale-95 transition-all text-xs sm:text-sm tracking-wider cursor-pointer"
           >
             BACAAN HARI INI
           </button>

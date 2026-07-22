@@ -84,12 +84,12 @@ export default function GospelReader({ gospelCode }: GospelReaderProps) {
 
   const getFontSizeClass = () => {
     switch (fontSize) {
-      case 'sm': return 'text-sm leading-relaxed';
-      case 'lg': return 'text-lg leading-relaxed';
-      case 'xl': return 'text-xl leading-loose';
+      case 'sm': return 'text-base leading-relaxed';
+      case 'lg': return 'text-xl leading-relaxed';
+      case 'xl': return 'text-2xl leading-relaxed';
       case 'base':
       default:
-        return 'text-base leading-relaxed';
+        return 'text-lg sm:text-xl leading-relaxed';
     }
   };
 
@@ -100,7 +100,7 @@ export default function GospelReader({ gospelCode }: GospelReaderProps) {
   return (
     <div
       id="bacaan-hari-ini"
-      className="bg-[#faf8f5] border border-amber-800/15 rounded-2xl p-5 sm:p-6 shadow-xl font-sans relative overflow-hidden transition-all duration-300"
+      className="bg-[#faf8f5] border border-amber-800/15 rounded-2xl p-5 sm:p-8 shadow-xl font-sans relative overflow-hidden transition-all duration-300"
     >
       {/* Background Texture Overlay */}
       <div 
@@ -115,8 +115,8 @@ export default function GospelReader({ gospelCode }: GospelReaderProps) {
       {/* Header controls */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-4 border-b border-amber-900/10 mb-5 relative z-10">
         <div>
-          <h3 className="text-xs font-bold text-amber-850/80 uppercase tracking-wider">Bacaan Injil</h3>
-          <h2 className="text-lg font-bold text-stone-900 mt-0.5">{gospelCode}</h2>
+          <h3 className="text-sm font-bold text-amber-850/80 uppercase tracking-wider">Bacaan Injil</h3>
+          <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mt-0.5">{gospelCode}</h2>
         </div>
         
         <div className="flex items-center gap-2 self-end sm:self-center">
@@ -124,21 +124,13 @@ export default function GospelReader({ gospelCode }: GospelReaderProps) {
           <div className="flex bg-stone-200/50 p-1 rounded-xl border border-stone-300/40 backdrop-blur-sm">
             <button
               onClick={() => setViewMode('native')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                viewMode === 'native'
-                  ? 'bg-[var(--liturgy-primary)] text-white shadow-sm'
-                  : 'text-stone-600 hover:text-stone-850'
-              }`}
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer bg-[var(--liturgy-primary)] text-white shadow-sm"
             >
               Teks Native
             </button>
             <button
               onClick={() => setViewMode('iframe')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                viewMode === 'iframe'
-                  ? 'bg-[var(--liturgy-primary)] text-white shadow-sm'
-                  : 'text-stone-600 hover:text-stone-850'
-              }`}
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer text-stone-600 hover:text-stone-850"
             >
               Iframe
             </button>
@@ -201,7 +193,7 @@ export default function GospelReader({ gospelCode }: GospelReaderProps) {
                     {copied ? (
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     ) : (
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 002 2h2a2 2 0 012-2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                     )}
                   </svg>
                   {copied ? 'Tersalin!' : 'Salin Teks'}
@@ -209,12 +201,12 @@ export default function GospelReader({ gospelCode }: GospelReaderProps) {
               </div>
 
               {/* Styled Scripture Text */}
-              <div className={`text-stone-900 space-y-4 max-h-[450px] overflow-y-auto pr-3 custom-scrollbar font-serif ${getFontSizeClass()}`}>
+              <div className={`text-stone-900 space-y-6 max-h-[450px] overflow-y-auto pr-3 custom-scrollbar font-serif ${getFontSizeClass()}`}>
                 {verses.map((verseItem) => {
                   return (
                     <p key={verseItem.verse} className="text-justify leading-relaxed">
                       {/* Verse marker */}
-                      <span className="inline-block font-mono text-[10px] font-bold text-amber-850 bg-amber-100/80 border border-amber-900/10 px-1.5 py-0.5 rounded mr-1.5 align-middle select-none">
+                      <span className="inline-block font-mono text-xs sm:text-sm font-bold text-amber-850 bg-amber-100/80 border border-amber-900/10 px-2 py-0.5 rounded mr-2 align-middle select-none">
                         {verseItem.verse.split(':').pop() || verseItem.verse}
                       </span>
                       {/* Verse text */}
@@ -224,7 +216,7 @@ export default function GospelReader({ gospelCode }: GospelReaderProps) {
                 })}
               </div>
               
-              <div className="text-[10px] text-stone-500 text-right mt-4 italic font-mono">
+              <div className="text-xs text-stone-500 text-right mt-4 italic font-mono">
                 Sumber teks: imankatolik.or.id
               </div>
             </div>
