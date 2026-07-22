@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { formatGospelQuery } from '@/app/utils/bible';
 
 interface Verse {
   verse: string;
@@ -93,7 +94,7 @@ export default function GospelReader({ gospelCode }: GospelReaderProps) {
   };
 
   const getIframeUrl = () => {
-    return `https://www.imankatolik.or.id/alkitabq.php?q=${encodeURIComponent(gospelCode)}`;
+    return `https://www.imankatolik.or.id/alkitabq.php?q=${encodeURIComponent(formatGospelQuery(gospelCode))}`;
   };
 
   return (

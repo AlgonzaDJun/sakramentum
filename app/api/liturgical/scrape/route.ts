@@ -1,4 +1,5 @@
 import { type NextRequest } from 'next/server';
+import { formatGospelQuery } from '@/app/utils/bible';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,8 +15,8 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Format the query: replace spaces with '+'
-    const formattedQuery = encodeURIComponent(query.trim());
+    // Format the query using the custom formatter
+    const formattedQuery = encodeURIComponent(formatGospelQuery(query));
     const targetUrl = `https://www.imankatolik.or.id/alkitabq.php?q=${formattedQuery}`;
 
     // Fetch the raw HTML from the external website
